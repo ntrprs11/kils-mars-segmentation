@@ -6,10 +6,7 @@ import plotly.graph_objects as go
 import pandas as pd
 import cv2
 import shutil
-from data_connect.interact_sftp_with_defaults import download_folder_default
 
-# Downloading the folder from the SFTP server to the local machine
-download_folder_default(remotepath ="./kils_mars_segmentation", localpath="./train")
 
 def evaluate_all_methods():
     # Setting the path to the test set
