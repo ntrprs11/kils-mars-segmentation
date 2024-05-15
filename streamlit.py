@@ -4,8 +4,6 @@ import plotly.graph_objects as go
 import cv2
 import yolo as y
 from ultralytics import YOLO
-from PIL import Image
-import numpy as np
 
 # streamlit run streamlit.py
 
@@ -44,14 +42,14 @@ st.markdown("""
 
 col1, col2, col3 = st.columns(3)
 with col1:
-    st.image(np.array(Image.open("train/0.png")), caption="0.png", use_column_width=True)
-    st.image(np.array(Image.open("train_mask/mask_0.png")), caption="mask_0.png", use_column_width=True)
+    st.image("train/0.png", caption="0.png", use_column_width=True)
+    st.image("train_mask/mask_0.png", caption="mask_0.png", use_column_width=True)
 with col2:
-    st.image(np.array(Image.open("train/1.png")), caption="1.png", use_column_width=True)
-    st.image(np.array(Image.open("train_mask/mask_1.png")), caption="mask_1.png", use_column_width=True)
+    st.image("train/1.png", caption="1.png", use_column_width=True)
+    st.image("train_mask/mask_1.png", caption="mask_1.png", use_column_width=True)
 with col3:
-    st.image(np.array(Image.open("train/2.png")), caption="2.png", use_column_width=True)
-    st.image(np.array(Image.open("train_mask/mask_2.png")), caption="mask_2.png", use_column_width=True)
+    st.image("train/2.png", caption="2.png", use_column_width=True)
+    st.image("train_mask/mask_2.png", caption="mask_2.png", use_column_width=True)
 
 test_images = ['5971.png', '5972.png', '5973.png', '5974.png', '5975.png', '5976.png', '5977.png', '5978.png', '5979.png', '598.png', '5980.png', '5981.png', '5982.png', '5983.png', '5984.png', '5985.png', '5986.png', '5987.png', '5988.png', '5989.png', '599.png', '5990.png', '5991.png', '5992.png', '5993.png', '5994.png', '5995.png', '5996.png', '5997.png', '5998.png', '5999.png', '6.png', '60.png', '600.png', '6000.png', '6001.png', '6002.png', '6003.png', '6004.png', '6005.png', '6006.png', '6007.png', '6008.png', '6009.png', '601.png', '6010.png', '6011.png', '6012.png', '6013.png', '6014.png', '6015.png', '6016.png', '6017.png', '6018.png', '6019.png', '602.png', '6020.png', '6021.png', '6022.png', '6023.png', '6024.png', '6025.png', '6026.png', '6027.png', '6028.png', '6029.png', '603.png', '6030.png', '6031.png', '6032.png', '6033.png', '6034.png', '6035.png', '6036.png', '6037.png', '6038.png', '6039.png', '604.png', '6040.png', '6041.png', '6042.png', '6043.png', '6044.png', '6045.png', '6046.png', '6047.png', '6048.png', '6049.png', '605.png', '6050.png', '6051.png', '6052.png', '6053.png', '6054.png', '6055.png', '6056.png', '6057.png', '6058.png', '6059.png', '606.png', '6060.png', '6061.png', '6062.png', '6063.png', '6064.png', '6065.png', '6066.png', '6067.png', '6068.png', '6069.png', '607.png', '6070.png', '6071.png', '6072.png', '6073.png', '6074.png', '6075.png', '6076.png', '6077.png', '6078.png', '6079.png', '608.png', '6080.png', '6081.png', '6082.png', '6083.png', '6084.png', '6085.png', '6086.png', '6087.png', '6088.png', '6089.png', '609.png', '6090.png', '6091.png', '6092.png', '6093.png', '6094.png', '6095.png', '6096.png', '6097.png', '6098.png', '6099.png', '61.png', '610.png', '6100.png', '6101.png', '6102.png', '6103.png', '6104.png', '6105.png', '6106.png', '6107.png', '6108.png', '6109.png', '611.png', '6110.png', '6111.png', '6112.png', '6113.png', '6114.png', '6115.png', '6116.png', '6117.png', '6118.png', '6119.png', '612.png', '6120.png', '6121.png', '6122.png', '6123.png', '6124.png', '6125.png', '6126.png', '6127.png', '6128.png', '6129.png', '613.png', '6130.png', '6131.png', '6132.png', '6133.png', '6134.png', '6135.png', '6136.png', '6137.png', '6138.png', '6139.png', '614.png', '6140.png', '6141.png', '6142.png', '6143.png', '6144.png', '6145.png', '6146.png', '6147.png', '6148.png', '6149.png', '615.png', '6150.png', '6151.png', 
         '6152.png', '6153.png', '6154.png', '6155.png', '6156.png', '6157.png', '6158.png', '6159.png', '616.png', '6160.png', '6161.png', '6162.png', '6163.png', '6164.png', '6165.png', '6166.png', '6167.png', '6168.png', '6169.png', '617.png', '6170.png', '6171.png', '6172.png', '6173.png', '6174.png', '6175.png', '6176.png', '6177.png', '6178.png', '6179.png', '618.png', '6180.png', '6181.png', '6182.png', '6183.png', '6184.png', '6185.png', '6186.png', '6187.png', '6188.png', '6189.png', '619.png', '6190.png', '6191.png', '6192.png', '6193.png', '6194.png', '6195.png', '6196.png', '6197.png', '6198.png', '6199.png', '62.png', '620.png', '6200.png', '6201.png', '6202.png', '6203.png', '6204.png', '6205.png', '6206.png', '6207.png', '6208.png', '6209.png', '621.png', '6210.png', '6211.png', '6212.png', '6213.png', '6214.png', '6215.png', '6216.png', '6217.png', '6218.png', '6219.png', '622.png', '6220.png', '6221.png', '6222.png', '6223.png', '6224.png', '6225.png', '6226.png', '6227.png', '6228.png', '6229.png', '623.png', '6230.png', '6231.png', '6232.png', '6233.png', '6234.png', '6235.png', '6236.png', '6237.png', '6238.png', '6239.png', '624.png', '6240.png', '6241.png', '6242.png', '6243.png', '6244.png', '6245.png', '6246.png', '6247.png', '6248.png', '6249.png', '625.png', '6250.png', '6251.png', '6252.png', '6253.png', '6254.png', '6255.png', '6256.png', '6257.png', '6258.png', '6259.png', '626.png', '6260.png', '6261.png', '6262.png', '6263.png', '6264.png', '6265.png', '6266.png', '6267.png', '6268.png', '6269.png', '627.png', '6270.png', '6271.png', '6272.png', '6273.png', '6274.png', '6275.png', '6276.png', '6277.png', '6278.png', '6279.png', '628.png', '6280.png', '6281.png', '6282.png', '6283.png', '6284.png', '6285.png', '6286.png', '6287.png', '6288.png', '6289.png', '629.png', '6290.png', '6291.png', '6292.png', '6293.png', '6294.png', '6295.png', '6296.png', '6297.png', '6298.png', '6299.png', '63.png', 
@@ -78,7 +76,7 @@ st.markdown("""
 
 selected_image = st.selectbox("Use the Dropdown to select an image and click on the Predict Button below!", test_images)
 image_path = "train/" + selected_image
-image = np.array(Image.open(image_path))
+image = image_path
 st.image(image, caption=selected_image, use_column_width=True)
 
 _, _, _, col, _, _, _ = st.columns(7)

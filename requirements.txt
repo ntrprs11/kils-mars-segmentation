@@ -9,4 +9,3 @@ plotly
 keras
 pysftp
 streamlit
-pillow
