@@ -1,0 +1,11 @@
+torch
+tensorflow
+ultralytics
+numpy
+pandas
+opencv-python
+scipy
+plotly
+keras
+pysftp
+streamlit
