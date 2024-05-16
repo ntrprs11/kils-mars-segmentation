@@ -3,7 +3,7 @@ tensorflow
 ultralytics
 numpy
 pandas
-opencv-python
+opencv-python-headless
 scipy
 plotly
 keras
