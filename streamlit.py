@@ -100,7 +100,7 @@ with col:
     predict = st.button("Predict")
 
 if predict:
-    coll, colm, colr = st.columns(2)
+    coll, colm, colr = st.columns(3)
     with coll:
         n_result_image = predict_and_draw("n-yolo-mars-seg.pt", image)
         st.image(n_result_image, caption="n-YOLO model Predicted Image", use_column_width=True)
