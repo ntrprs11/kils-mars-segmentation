@@ -4,8 +4,7 @@ import plotly.graph_objects as go
 import cv2
 import yolo as y
 from ultralytics import YOLO
-import cow as c
-import functions as f
+
 # streamlit run streamlit.py
 
 def show_fig():
@@ -85,6 +84,7 @@ with col:
     predict = st.button("Predict")
 
 if predict:
+<<<<<<< HEAD
     st.markdown("""
 ### Try predicting an Image yourself using our methods!
 Left: n-YOLO, Middle: opencv-python, Rigth: cow algorithm
@@ -108,6 +108,10 @@ if predict:
         st.image(f.predict_sample_using_simple_cv(image), caption="opencv-python algorithm predicted Image", use_column_width=True)
     with colr:
         st.image(c.predict_cow(), caption="cow generated Image", use_column_width=True)
+=======
+    result_image = predict_and_draw(image)
+    st.image(result_image, caption="Predicted Image", use_column_width=True)
+>>>>>>> parent of 8d375f9 (more predicts)
 
 st.markdown("""
 ### Key YOLO Code used!
