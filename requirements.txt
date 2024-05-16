@@ -1,9 +1,9 @@
+opencv-python-headless
 torch
 tensorflow
 ultralytics
 numpy
 pandas
-opencv-python-headless
 scipy
 plotly
 keras
