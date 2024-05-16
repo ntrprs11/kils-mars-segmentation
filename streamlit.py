@@ -4,6 +4,8 @@ import plotly.graph_objects as go
 import cv2
 import yolo as y
 from ultralytics import YOLO
+import cow as c
+import functions as f
 
 # streamlit run streamlit.py
 
@@ -71,7 +73,8 @@ violin_plot = show_fig()
 st.plotly_chart(violin_plot)
 
 st.markdown("""
-### Try predicting an Image yourself using our YOLO-n model!
+### Try predicting an Image yourself using our methods!
+after predicting the left image will be the predicted n-YOLO Image, the middle will be the opencv algorithm predicted image and the right one will be the cow algorithm generated iamge.
 """)
 
 selected_image = st.selectbox("Use the Dropdown to select an image and click on the Predict Button below!", test_images)
@@ -84,8 +87,15 @@ with col:
     predict = st.button("Predict")
 
 if predict:
-    result_image = predict_and_draw(image)
-    st.image(result_image, caption="Predicted Image", use_column_width=True)
+    coll, colm, colr = st.columns(3)
+    with coll:
+        result_image = predict_and_draw(image)
+        st.image(result_image, caption="n-YOLO Predicted Image", use_column_width=True)
+    with colm:
+        st.image(f.predict_sample_using_simple_cv(image), caption="opencv-python Predicted Image", use_column_width=True)
+    with colr:
+        st.image(c.predict_cow(), caption="cow algorithm generated Image", use_column_width=True)
+        
 
 st.markdown("""
 ### Key YOLO Code used!
